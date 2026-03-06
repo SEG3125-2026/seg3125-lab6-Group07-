@@ -1,0 +1,121 @@
+/* styling the webpage background */
+
+.home-page{
+    background-image: url('images/WarrenBuffet.png'); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+.cat-page{
+    background-image: url('images/catbackground.avif'); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+/* Image grid layout */
+.image-grid {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  width: 600px;
+}
+
+.side {
+  position: absolute;
+  left: 0;
+  transform: translateX(-150%);
+  width: 150px;
+  border:none;
+}
+
+.back-image{
+  border: none;
+
+}
+
+/* Zoom on hover feature for main image*/
+.main:hover{
+  transform: scale(1.15)
+}
+
+.main:hover{
+  transition: .5s ease-in-out;
+}
+
+
+/* Setting up the home page title */
+.main-title {
+    color:beige;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+.titles {
+    color:beige;
+  }
+
+
+/* Setting up the cat page title */
+.title-cat{
+    color:black;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 320px;
+  }
+
+
+/* hyperlink colour inside title */
+p a {
+    color:aquamarine;
+  }
+
+  img {
+    border: 2px solid black;
+    border-radius: 8px;
+
+  }
+
+
+/* block section styling */
+.blocks {
+    background-color: azure;
+    color:darkblue;
+    border: 2px solid black; 
+    margin: 30px;
+    padding: 20px;
+    max-width:500px;
+    width: 90%;
+  }
+
+.submit-btn {
+    margin-left: 30px;
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: aquamarine;
+    color: darkblue;
+    border: none;
+    border-radius: 8px;
+}
+
+.submit-btn b {
+    color:darkblue;
+}
+
+
+  
+
+  

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- CSS file -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Questionnaire</title>
+</head>
+
+
+<body class="home-page">
+    <!-- title of the webpage -->
+    <h1 class="main-title"> <em>Website User Interface Evaluation Survey</em></h1>
+    <p class="titles">
+        <!-- hyperlink to the website -->
+        Website being evaluated:
+        <a href="https://www.berkshirehathaway.com/" target="_blank">BERKSHIRE HATHAWAY INC.</a>
+    </p>
+    <div class="image-grid">
+        <a href="cat.html">
+            <!-- Clickable image to other page -->
+            <img src="images/cutekitten.png" width="60" class="side">
+        </a>
+        <a href="https://www.berkshirehathaway.com/" target="_blank">
+            <!-- Clickable image of the webpage -->
+            <img src="images/site_UI.png" alt="Website UI" width="600" class="main">
+        </a>
+
+    </div>
+
+    <form>
+
+        <!--A text-type question-->
+        <div class="blocks question">
+            <label>1. What is your name?</label><br><br>
+            <input type="text">
+        </div>
+        <!--Two single choice questions (radio button and a list)-->
+
+        <div class="blocks question">
+            <label>2. How easy is the website to navigate?</label><br><br>
+            <input type="radio" name="nav"> Very easy<br>
+            <input type="radio" name="nav"> Easy<br>
+            <input type="radio" name="nav"> Difficult<br>
+        </div>
+
+        <!--Two single choice questions (radio button and a list)-->
+        <div class="blocks question">
+            <label>3. How would you rate the overall design?</label><br><br>
+            <select>
+                <option>Excellent</option>
+                <option>Good</option>
+                <option>Average</option>
+                <option>Poor</option>
+            </select>
+        </div>
+
+        <!--A selection question (several boxes can be selected)-->
+        <div class="blocks question">
+            <label>4. What features do you like? (select all that apply)</label><br><br>
+            <input type="checkbox"> Colors<br>
+            <input type="checkbox"> Layout<br>
+            <input type="checkbox"> Content<br>
+            <input type="checkbox"> Navigation<br>
+        </div>
+
+
+        <div class="blocks question">
+            <label>5. What problems did you face?</label><br><br>
+            <textarea rows="6" cols="60"></textarea>
+        </div>
+
+        <!-- Space to write down additional comments-->
+        <div class="blocks question">
+            <label>6. Any additional comments?</label><br><br>
+            <textarea rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- A button to submit a questionnaire-->
+        <button class="submit-btn" type="submit"><b>Submit Survey</b></button>
+    </form>
+    <p class="titles" id="signature"> Website designed by Group 7
+    </p>
+</body>
+
+</html>
