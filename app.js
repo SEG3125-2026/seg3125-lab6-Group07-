@@ -7,7 +7,7 @@ var surveyController = require('./surveyController');
 
 var app = express();
 
-var urlEncodedSurvey = surveyController.urlencoded({extended : false});
+var urlEncodedSurvey = express.urlencoded({extended : false});
 
 
 // set up template engine
