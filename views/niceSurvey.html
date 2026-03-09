@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website UI Evaluation Survey</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --accent: #e8a020;
+      --light: #f5f8fc;
+    }
+
+    body {
+      background: var(--light);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .survey-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 2rem 0 1.4rem;
+      text-align: center;
+    }
+
+    .survey-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+
+    .survey-header a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .survey-header a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Progress bar ── */
+    #progress-bar {
+      height: 6px;
+      background: var(--accent);
+      transition: width .4s ease;
+    }
+
+    /* ── Card ── */
+    .survey-card {
+      max-width: 680px;
+      margin: 2.5rem auto 3rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .09);
+      overflow: hidden;
+    }
+
+    .card-body {
+      padding: 2.2rem 2.5rem;
+    }
+
+    /* ── Step indicator ── */
+    .step-label {
+      font-size: .8rem;
+      color: #6c757d;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── Form controls ── */
+    .form-label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 8px;
+      border: 1.5px solid #d0dae8;
+      padding: .6rem .9rem;
+      transition: border-color .2s;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 58, 92, .12);
+    }
+
+    .form-check-input:checked {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* ── Buttons ── */
+    .btn-primary-custom {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: .6rem 1.6rem;
+      font-weight: 600;
+      transition: background .2s;
+    }
+
+    .btn-primary-custom:hover {
+      background: #142d47;
+    }
+
+    .btn-outline-custom {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: .55rem 1.4rem;
+      font-weight: 600;
+      transition: all .2s;
+    }
+
+    .btn-outline-custom:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: .65rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background .2s;
+    }
+
+    .btn-accent:hover {
+      background: #c8881a;
+    }
+
+    /* ── Thank-you screen ── */
+    #thank-you {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    #thank-you .check-icon {
+      font-size: 3.5rem;
+      color: #2ecc71;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Accessibility: skip link ── */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: #000;
+      padding: 8px 14px;
+      z-index: 100;
+      transition: top .2s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ── Site thumbnail ── */
+    .site-thumb {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #8a9ab0;
+      font-size: .85rem;
+      padding-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Accessibility: skip to main content -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="survey-header" role="banner">
+    <h1><em>Website User Interface Evaluation Survey</em></h1>
+    <p class="mb-0">
+      Website being evaluated:
+      <a href="https://www.berkshirehathaway.com/" target="_blank" rel="noopener noreferrer"
+        aria-label="Berkshire Hathaway Inc. (opens in new tab)">BERKSHIRE HATHAWAY INC.</a>
+    </p>
+  </header>
+  <!-- Progress bar (aria-hidden; screen readers get step label instead) -->
+  <div role="progressbar" aria-hidden="true" style="background:#dde4ed;">
+    <div id="progress-bar" style="width:16.6%;"></div>
+  </div>
+
+  <!-- Survey card -->
+  <main id="main-content">
+    <div class="survey-card" role="main">
+      <div class="card-body">
+
+        <form action="/niceSurvey" method="POST">
+
+          <img src="/images/site_UI.png" alt="Screenshot of Berkshire Hathaway website" class="site-thumb"
+            onerror="this.style.display='none'">
+
+          <!-- ═══════════════ STEP 1 — Name ═══════════════ -->
+          <section id="step-1" aria-label="Step 1 of 6: Name">
+            <p class="step-label" aria-live="polite">Step 1 of 6</p>
+
+
+            <div class="mb-4" method="POST">
+              <label class="form-label" for="name">1. What is your name?</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                autocomplete="name" aria-required="true">
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary-custom" onclick="goTo(2)" aria-label="Next step">Next
+                →</button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ STEP 2 — Navigation ═══════════════ -->
+          <section id="step-2" style="display:none" aria-label="Step 2 of 6: Navigation">
+            <p class="step-label" aria-live="polite">Step 2 of 6</p>
+
+
+            <fieldset class="mb-4">
+              <legend class="form-label">2. How easy is the website to navigate?</legend>
+              <div class="form-check" method="POST">
+                <input class="form-check-input" type="radio" name="navigation" id="nav-very-easy" value="Very easy">
+                <label class="form-check-label" for="nav-very-easy">Very easy</label>
+              </div>
+              <div class="form-check" method="POST">
+                <input class="form-check-input" type="radio" name="navigation" id="nav-easy" value="Easy">
+                <label class="form-check-label" for="nav-easy">Easy</label>
+              </div>
+              <div class="form-check" method="POST">
+                <input class="form-check-input" type="radio" name="navigation" id="nav-difficult" value="Difficult">
+                <label class="form-check-label" for="nav-difficult">Difficult</label>
+              </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-outline-custom" onclick="goTo(1)">← Back</button>
+              <button type="button" class="btn btn-primary-custom" onclick="goTo(3)">Next →</button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ STEP 3 — Design Rating ═══════════════ -->
+          <section id="step-3" style="display:none" aria-label="Step 3 of 6: Design Rating">
+            <p class="step-label" aria-live="polite">Step 3 of 6</p>
+
+            <div class="mb-4">
+              <label class="form-label" for="design">3. How would you rate the overall design?</label>
+              <select class="form-select" id="design" name="design" aria-required="true" method="POST">
+                <option value="" disabled selected>— Select a rating —</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Poor">Poor</option>
+              </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-outline-custom" onclick="goTo(2)">← Back</button>
+              <button type="button" class="btn btn-primary-custom" onclick="goTo(4)">Next →</button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ STEP 4 — Features ═══════════════ -->
+          <section id="step-4" style="display:none" aria-label="Step 4 of 6: Features">
+            <p class="step-label" aria-live="polite">Step 4 of 6</p>
+
+            <fieldset class="mb-4">
+              <legend class="form-label">4. What features do you like? <span class="text-muted fw-normal">(select all
+                  that apply)</span></legend>
+              <div class="form-check" method="POST" action="/index">
+                <input class="form-check-input" type="checkbox" name="features" id="feat-colors" value="Colors">
+                <label class="form-check-label" for="feat-colors">Colors</label>
+              </div>
+              <div class="form-check" method="POST" action="/index">
+                <input class="form-check-input" type="checkbox" name="features" id="feat-layout" value="Layout">
+                <label class="form-check-label" for="feat-layout">Layout</label>
+              </div>
+              <div class="form-check" method="POST" action="/index">
+                <input class="form-check-input" type="checkbox" name="features" id="feat-content" value="Content">
+                <label class="form-check-label" for="feat-content">Content</label>
+              </div>
+              <div class="form-check" method="POST" action="/index">
+                <input class="form-check-input" type="checkbox" name="features" id="feat-navigation" value="Navigation">
+                <label class="form-check-label" for="feat-navigation">Navigation</label>
+              </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-outline-custom" onclick="goTo(3)">← Back</button>
+              <button type="button" class="btn btn-primary-custom" onclick="goTo(5)">Next →</button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ STEP 5 — Problems ═══════════════ -->
+          <section id="step-5" style="display:none" aria-label="Step 5 of 6: Problems">
+            <p class="step-label" aria-live="polite">Step 5 of 6</p>
+
+            <div class="mb-4" method="POST" action="/index">
+              <label class="form-label" for="problems">5. What problems did you face?</label>
+              <textarea class="form-control" id="problems" name="problems" rows="5"
+                placeholder="Describe any issues you encountered…" aria-multiline="true"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between" method="POST" action="/index">
+              <button type="button" class="btn btn-outline-custom" onclick="goTo(4)">← Back</button>
+              <button type="button" class="btn btn-primary-custom" onclick="goTo(6)">Next →</button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ STEP 6 — Additional Comments ═══════════════ -->
+          <section id="step-6" style="display:none" aria-label="Step 6 of 6: Additional Comments">
+            <p class="step-label" aria-live="polite">Step 6 of 6</p>
+
+            <div class="mb-4">
+              <label class="form-label" for="comments">6. Any additional comments?</label>
+              <textarea class="form-control" id="comments" name="comments" rows="4"
+                placeholder="Anything else you'd like to share…"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between" method="POST" action="/surveyController">
+              <button type="button" class="btn btn-outline-custom" onclick="goTo(5)">← Back</button>
+              <button type="submit" class="btn btn-accent" aria-label="Submit survey">
+                Submit Survey ✓
+              </button>
+            </div>
+          </section>
+
+          <!-- ═══════════════ Thank-you screen ═══════════════ -->
+          <div id="thank-you" role="alert" aria-live="assertive">
+            <div class="check-icon" aria-hidden="true">✅</div>
+            <h2 class="step-title" style="text-align:center">Thank you!</h2>
+            <p class="text-muted">Your response has been recorded successfully.</p>
+            <button class="btn btn-outline-custom mt-2" onclick="resetSurvey()">Submit another response</button>
+          </div>
+
+        </form>
+
+      </div><!-- /card-body -->
+    </div><!-- /survey-card -->
+  </main>
+
+  <footer>
+    <p>Website designed by Group 7 &nbsp;|&nbsp; SEG3125</p>
+  </footer>
+
+  <script>
+    const TOTAL_STEPS = 6;
+    let current = 1;
+
+    function goTo(step) {
+      document.getElementById(`step-${current}`).style.display = 'none';
+      current = step;
+      document.getElementById(`step-${current}`).style.display = 'block';
+
+      // Update progress bar
+      const pct = (current / TOTAL_STEPS) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+
+      // Scroll to top of card
+      document.querySelector('.survey-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+
+    function resetSurvey() {
+      document.getElementById('thank-you').style.display = 'none';
+      document.getElementById('name').value = '';
+      document.querySelectorAll('input[name="navigation"]').forEach(r => r.checked = false);
+      document.getElementById('design').selectedIndex = 0;
+      document.querySelectorAll('input[name="features"]').forEach(cb => cb.checked = false);
+      document.getElementById('problems').value = '';
+      document.getElementById('comments').value = '';
+      current = 1;
+      document.getElementById('step-1').style.display = 'block';
+      document.getElementById('progress-bar').style.width = '16.6%';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
